@@ -154,5 +154,7 @@ print("가동 점검표 \t 1. 온도 확인 \t 2. 압력 확인")
 
 print("PUMP_A" + "/정상" + "/2025-01-15")
 
-operation_time = input("현재 시간은 :")
-print("설비 \n 상태 \n" + operation_time )
+operation_time = int(input("현재 시간은 :"))
+if operation_time >= 1700 :
+    print("정상")
+print("설비 \n 상태 \n" + str(operation_time) +"\n" + str(3>=2))
