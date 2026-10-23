@@ -140,3 +140,4 @@ clean_2 = clean_1[1]
 print(clean_2)
 clean_3 = clean_2.strip().lower()
 print(clean_3)
+
