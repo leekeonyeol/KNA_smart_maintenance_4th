@@ -41,3 +41,13 @@ print(date)
 
 equipment = date.replace(" ",'-').upper()
 print(equipment)
+
+# 문제1번
+text = "it's noraml"
+print("설비 점검 \n" + text)
+
+text = '사과, 배, 감'
+clean_1 = text.split(',')
+print(clean_1)
+clean_2 = '/'.join(clean_1)
+print(clean_2)

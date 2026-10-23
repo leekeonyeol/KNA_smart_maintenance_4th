@@ -127,3 +127,16 @@ print(clean)
 
 print('2025','1','15',sep='-')
 print('2025','1','15',sep=',')
+
+date = '2025/01/15'
+clean_1 = date.split('/')
+clean_2 = '-'.join(clean_1)
+print(clean_2)
+
+text = '1, NORMAL ,25.3'
+clean_1 = text.split(',')
+print(clean_1)
+clean_2 = clean_1[1]
+print(clean_2)
+clean_3 = clean_2.strip().lower()
+print(clean_3)
