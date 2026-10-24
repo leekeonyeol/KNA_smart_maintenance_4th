@@ -240,4 +240,5 @@ c = filename[9:12]
 d = "csv" in filename
 print(f'파일명:{filename}, 이름:{a}, 언더바 위치:{b}, 번호:{c}, csv여부:{d}')
 
-# 문제 8번
+# 문제 1번
+
