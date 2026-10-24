@@ -108,3 +108,86 @@ print(third)
 
 email = 'hong@company.com'
 print(email[:email.find("@")],email[email.find("@")+1:])
+
+# 문제 9번
+log = ' WARNING,NORMAL,WARNING,FAULT '
+first = log.index("WARNING")
+print(first)
+second = log.count("WARNING")
+print(second)
+print("WARNING" in log)
+
+# 문제 10번
+a = 'Normal'
+b = 'NORMAL'
+print(a == b)
+print(a.lower() == b.lower())
+
+# 문제 11번
+raw = '  FAULT  '
+print(raw == 'fault')
+raw_1 = raw.strip().lower()
+print(raw_1 == 'fault')
+
+# 문제 12번
+text = '  가동중  '
+text = text.strip()
+print('[' + text + ']')
+
+# 문제 13번
+text = '***경고***'
+text = text.strip('*')
+print('[' + text + ']')
+s = ' 대기 '
+s = s.lstrip()
+print('[' + s + ']')
+
+# 문제 14번
+phone = ' 010-1234-5678 '
+phone = phone.strip().replace('-','')
+print(phone, len(phone))
+
+# 문제 15번
+st = 'fault, FAULT, Fault'
+st = st.lower().replace('fault','고장')
+print(st)
+
+# 문제 16번
+row = '1, NORMAL ,25.3'
+row = row.split(',')
+first = row[1].strip().lower()
+print(first)
+second = float((row[2])) + 1
+print(second)
+
+# 문제 17번
+n = 'sensor_01_temp'
+n = n.split('_')
+print(n)
+first = '-'.join(n)
+print(first)
+second = ' '.join(n).title()
+print(second)
+
+# 문제 18번 
+c = 'EQP-001-NORMAL'
+c = c.split('-',1)
+print(c)
+second = c[0].lower()
+print(second)
+
+# 문제 19번
+raw = ' Pump A 03 '
+raw = raw.strip().upper().split(' ')
+print(raw)
+first = '_'.join(raw)
+print(first.startswith('PUMP'))
+
+# 문제 20번
+line = '  15, eqp-001 , WARNING , 31.5\n'
+first = line.strip().split(',')
+print(first)
+second = first[1].strip().upper()
+print(second)
+third = float(first[3].strip())
+print(third)
