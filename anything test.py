@@ -109,7 +109,7 @@ print(third)
 email = 'hong@company.com'
 print(email[:email.find("@")],email[email.find("@")+1:])
 
-# 문제 9번
+# 문제 9번 03_04, 04_05
 log = ' WARNING,NORMAL,WARNING,FAULT '
 first = log.index("WARNING")
 print(first)
@@ -191,3 +191,53 @@ second = first[1].strip().upper()
 print(second)
 third = float(first[3].strip())
 print(third)
+
+# 문제 1번 03_02, 03_03 
+temp = 25
+print(f'온도 : {temp}')
+
+# 문제 2번
+code = 'PUMP_A'
+status = '정상'
+hours = 120
+text = f'{code} / {status} / {hours}'
+print(text) # f-string은 변수들을 변환 없이 받기위한 장치
+
+# 문제 3번
+date = '20250115'
+a = date[0:4]
+b = date[4:6]
+c = date[6:]
+print(f'{a}-{b}-{c}')
+
+# 문제 4번
+phone = '01012345678'
+a = '010'
+b = '1234'
+c = '5678'
+print(f'{a}-{b}-{c}')
+
+# 문제 5번
+log = 'WARNING,NORMAL,WARNING,FAULT'
+a = len(log)
+b = log.count("WARNING")
+c = log.find("FAULT")
+print(f'전체 길이: {a}, WARNING 횟수: {b}, FAULT 위치: {c}')
+
+# 문제 6번
+code = 'EQP-001'
+status = '정상'
+hours = 1500
+date = '20250115'
+date = date[0:4]+'-'+date[4:6]+'-'+date[6:]
+print(f'설비: {code}\n상태: {status}\n가동: {hours}시간\n점검: {date}')
+
+# 문제 7번
+filename = 'cmapss_fd001.csv'
+a = filename[:9]
+b = filename.find("_")
+c = filename[9:12]
+d = "csv" in filename
+print(f'파일명:{filename}, 이름:{a}, 언더바 위치:{b}, 번호:{c}, csv여부:{d}')
+
+# 문제 8번
