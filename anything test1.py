@@ -240,5 +240,87 @@ c = filename[9:12]
 d = "csv" in filename
 print(f'파일명:{filename}, 이름:{a}, 언더바 위치:{b}, 번호:{c}, csv여부:{d}')
 
-# 문제 1번
+# 문제 1번 04_1, 04_2
+temps = [72, 68, 75, 80, 77, 85, 70]
+# temps = temps.split(",") 'list' object has no attribute 'split'
+# temps = temps[0:2] list는 이미 구별되어있음 
+# print(temps) = 72,68
+a = temps[0]
+b = temps[-1]
+c = temps[3:6]
+d = len(temps)
+print(a,b,c,d)
 
+# 문제 2번
+machines = ["펌프", "모터", "압축기"]
+machines.append("펌프")
+print(machines)
+machines.insert(1,"팬")
+print(machines)
+machines.remove("모터")
+print(machines)
+a = "모터" in machines
+print(a)
+
+# 문제 3번
+vib = [2.1, 2.4, 99.9, 2.2, 2.4, 2.3]
+vib.remove(99.9)
+print(vib)
+vib.sort(reverse=True)
+print(vib)
+a = vib.count(2.4)
+b = vib.index(2.3)
+print(a,b)
+
+# 문제 4번
+pre = 100
+if pre >= 100 :
+    print("경고")
+else :
+    print("정상")
+
+# 문제 5번
+vib = 4.5
+if vib > 4.0 :
+    print("정지")
+elif vib > 2.5 :
+    prnit("관찰")
+else :
+    print("정상")
+
+# 문제 6번
+temp = 50
+if temp >= 20 and temp <= 60 :
+    print("정상 범위")
+else :
+    print("범위 이탈")
+
+# 문제 7번
+temps = [72, 68, 75, 80, 77, 85, 70] # list
+
+a = temps[:] # pint(temps)시 원본을 보호하기 위한 조치
+a.sort()
+print(a)
+b = a[-1]
+print(b)
+
+tem = b
+if tem > 80 :
+    print("위험")
+elif tem > 70 :
+    print("주의")
+else :
+    print("정상")
+
+# 문제 8번
+results = ["정상", "이상", "정상", "정상", "이상", "이상"]
+a = results.count("이상")
+b = results.index("이상")
+
+first = a
+if first >= 3 :
+    print("점검 필요")
+elif first >= 1:
+    print("관찰")
+else :
+    print("양호")
