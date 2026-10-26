@@ -284,7 +284,7 @@ vib = 4.5
 if vib > 4.0 :
     print("정지")
 elif vib > 2.5 :
-    prnit("관찰")
+    print("관찰")
 else :
     print("정상")
 
