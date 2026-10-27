@@ -161,23 +161,68 @@
 #     print("데이터 없음")
 
 # 문제 8번
-answer = 42 
-guess = 0
-count = 0
-while guess != answer : #조건이 참인 동안 반복
-    guess = int(input("입력하세요:")) 
-    count += 1
-    if guess > answer :
-        print("크다")
-    elif guess < answer :
-        print("작다")
-print("정답입니다!", count)
+# answer = 42 
+# guess = 0
+# count = 0
+# while guess != answer : #조건이 참인 동안 반복
+#     guess = int(input("입력하세요:")) 
+#     count += 1
+#     if guess > answer :
+#         print("크다")
+#     elif guess < answer :
+#         print("작다")
+# print("정답입니다!", count)
 
-# 문제 9번
-for i in range(1,6) :
-    print("*"*i)
+# # 문제 9번
+# for i in range(1,6) :
+#     print("*"*i)
 
 # 문제 10번
+#found = False #플래그 변수
+#n = int(input("횟수:"))
+#for i in range(1,n+1) :
+#    value = int(input("측정값:"))
+#    if value > 80 :
+#       found = True
+#        break
+#if found :    
+#    print("발견")
+#else :
+#    print("없음")
+
+# 문제 11번
+#temps = [25, 32, 28, 35, 19, 41]
+#data_1 = 0
+#data_2 = 0
+#data_3 = 0
+#data_4 = 0
+#for i in temps :
+#    data_1 += i
+#    data_4 += 1
+#    if i > 30 :
+#        data_2 += 1
+#        data_3 += i
+#print(data_2,data_3/data_2)
+#print(data_1/data_4)
+#print(max(temps))
+
+# 문제 12번
+total = 0
+count = 0
+while True : # 값을 그냥 계속 입력 받을 경우
+    x = input("입력(q종료):")
+    if x == "q" :
+        break
+    v = int(x)
+    if v < 0 :
+        continue
+    total += v 
+    count += 1
+print(total,count)
+
+
+
+
 
     
 
