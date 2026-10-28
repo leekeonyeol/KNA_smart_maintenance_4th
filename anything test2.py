@@ -115,7 +115,7 @@
 #     data += i
 # print(data)
 
-# # 문제 3번 *중요*
+# # 문제 3번 ***
 # count = 10
 # while count >= 1 : #조건이 참인 동안 반복
 #     print(count)
@@ -127,13 +127,12 @@
 #         continue
 #     print(i)
 
-# 문제 5번 0단계한번, 1단계매바퀴, 2단계조건부
+# 문제 5번 0단계한번, 1단계매바퀴, 2단계조건부 ***
 # i = 1
-# while True : #0단계
-#     if i%7 == 0 :
-#         print(i) #2단계
-#         break
-#     print(i) #1단계
+# while True :           기본적으로 계속 반복
+#     print(i)
+#     if i%7 == 0 : 
+#         break 
 #     i += 1
 
 # # 문제 6번
@@ -160,7 +159,7 @@
 # else :
 #     print("데이터 없음")
 
-# 문제 8번
+# 문제 8번 ***
 # answer = 42 
 # guess = 0
 # count = 0
@@ -177,7 +176,7 @@
 # for i in range(1,6) :
 #     print("*"*i)
 
-# 문제 10번
+# 문제 10번 ***
 #found = False #플래그 변수
 #n = int(input("횟수:"))
 #for i in range(1,n+1) :
@@ -206,23 +205,69 @@
 #print(data_1/data_4)
 #print(max(temps))
 
-# 문제 12번
-total = 0
-count = 0
-while True : # 값을 그냥 계속 입력 받을 경우
-    x = input("입력(q종료):")
-    if x == "q" :
+# 문제 12번 ***
+# total = 0
+# count = 0
+# while True : # 값을 그냥 계속 입력 받을 경우
+#     x = input("입력(q종료):")
+#     if x == "q" :
+#         break
+#     v = int(x)
+#     if v < 0 :
+#         continue
+#     total += v 
+#     count += 1
+# print(total,count)
+
+# 문제 13번 ***
+data = 0
+i = 0
+while data <= 500 :
+    i += 1
+    data += i
+print(data,i)
+
+# 문제 14번 ***
+found = False
+for i in range(2,10) :
+    for j in range(1,10) : # ***for 2개 연달아 사용가능
+         v= i * j
+         if v > 50 :
+            found = True
+            break
+         print(i,"*",j,"=",i*j) 
+    if found :
         break
-    v = int(x)
-    if v < 0 :
-        continue
-    total += v 
-    count += 1
-print(total,count)
+if found :
+    print("끝")
 
+# 문제 15번
+data = [72, 85, 90, 64, 88, 79, 95]
+found = False
+count = 0
+for i in data :
+    if i > 80 :
+        count += 1
+        if count >= 2:
+            found = True
+            break
+    else :
+        count = 0
+if found :
+    print("연속 이상 발견")
+else :
+    print("없음")
 
+# 문제 16번
+temps = [25, 32, 28, 35, 27]
+for i in temps :
+    if i > 30 :
+        print(i , "고온 주의")
 
+# 문제 17번
+hours = [8, 3, 6, 11, 10, 4, 9]
+for i in hours :
+    if i >= 5 and i <= 10 :
+        print(i)
 
-
-    
-
+# 문제 18번

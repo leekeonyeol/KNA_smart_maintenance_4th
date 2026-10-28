@@ -317,10 +317,10 @@ results = ["정상", "이상", "정상", "정상", "이상", "이상"]
 a = results.count("이상")
 b = results.index("이상")
 
-first = a
-if first >= 3 :
-    print("점검 필요")
-elif first >= 1:
-    print("관찰")
-else :
-    print("양호")
+# first = a
+# if first >= 3 :
+#     print("점검 필요")
+# elif first >= 1:
+#     print("관찰")
+# else :
+#     print("양호")
