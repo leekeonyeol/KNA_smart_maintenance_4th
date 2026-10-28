@@ -271,3 +271,102 @@ for i in hours :
         print(i)
 
 # 문제 18번
+temps = [25, 32, 28, 35, 19, 27]
+max_value = 0
+min_value = 35
+for i in temps :
+    if i > max_value :
+        max_value = i
+    if min_value > i :
+        min_value = i
+print(max_value,min_value)
+
+# 문제 19번
+temps = [25, 26, 24, 28]
+temps_1 = []
+for i in temps :
+    value = i*2
+    temps_1.append(value)
+print(temps_1)
+
+# 문제 20번
+temps = [32, 25, 35, 28, 31, 33, 20]
+high = []
+for i in temps :
+    if i > 30 :
+        high.append(i)
+print(high)
+print(len(high))
+
+# 문제 21번
+celsius = [25, 26, 24, 28, 27]
+data = []
+for i in celsius :
+    value = i*1.8 + 32
+    data.append(round(value,1))
+print(data)
+
+# 문제 22번
+temps = [32, 25, 36, 28, 31]
+data_1 = 0
+data_2 = 0
+for i in temps :
+    if i > 30 :
+        data_1 += i
+        data_2 += 1
+if data_2 > 0 :
+    print(data_1,data_2,data_1/data_2)
+else :
+    print("고온 없음")
+
+# 문제 23번
+temps = [25, 32, 28, 35, 19, 17, 31]
+high = []
+low = []
+for i in temps :
+    if i >= 30 :
+        high.append(i)
+    elif i < 20 :
+        low.append(i)
+print(high)
+print(low)
+
+# 문제 24번
+sensors = [[25, 26, 24], [30, 31, 29], [28,35, 33]]
+data = []
+for i in sensors :
+    sel_1 = sum(i)
+    a = sel_1/3
+    print(a) 
+    if a > 30:
+        data.append(a)
+print(data)        
+
+# 문제 25번
+temps = [25, 32, 28, 35, 24, 31, 27, 34, 29, 35]
+high = []
+count_1 = 0
+count_2 = 0
+for i in temps :
+    if i > 30 :
+        count_1 += i
+        count_2 += 1
+        high.append(i)
+print(high)
+print(count_1/count_2)
+print(len(high))
+print(count_1/count_2 - sum(temps)/len(temps))
+
+# 문제 26번
+data = [25, -1, 32, 28, -1, 35]
+valid = []
+for i in data :
+    if i == -1 :
+        continue
+    valid.append(i)
+print(valid)
+total = 0
+for i in valid :
+    total += i
+print(total)
+
