@@ -151,10 +151,6 @@ for name,val in value.items() :
         overlimit[name] = val 
 print(sorted(overlimit.keys())) # *** 키만 추출
 
-#선생님 혹시 저희 계속 진도만 나가나요? 
-#점점 양이 방대해지다보니 중간에
-#복습문제 같은 시간을 넣어서 확인하는것이 어떤지 여쭤봅니다
-
 def greet() :
     print("점검을 시작합니다")
 greet()
