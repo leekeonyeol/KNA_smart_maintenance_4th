@@ -150,7 +150,6 @@
 #     for j in count :
 #         report_1.writerow(j)
 
-# 문제 16번
 
         
 
