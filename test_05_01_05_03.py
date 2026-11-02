@@ -441,30 +441,34 @@
 #         count_1 += 1
 # print(count, count_1)
 
-# 문제 11
-data = int(input("측정 횟수:"))
-total = 0
-if data != 0 :
-    for i in range(1, data + 1) :
-        data_1 = int(input("측정값:"))
-        total += data_1
-    print(total/data)
-elif data == 0 :
-    print("데이터 없음")
+# # 문제 11
+# data = int(input("측정 횟수:"))
+# total = 0
+# if data != 0 :
+#     for i in range(1, data + 1) :
+#         data_1 = int(input("측정값:"))
+#         total += data_1
+#     print(total/data)
+# elif data == 0 :
+#     print("데이터 없음")
 
-# 문제 12 
-answer = 42
-data = 0
-data_1 = 0
-while data != 42 : # 조건이 참인 동안 진행
-    data = int(input("입력:"))
-    data_1 += 1
-    if data > answer :
-        print("크다")
-    elif data < answer :
-        print("작다")
+# # 문제 12 
+# answer = 42
+# data = 0
+# data_1 = 0
+# while data != 42 : # 조건이 참인 동안 진행
+#     data = int(input("입력:"))
+#     data_1 += 1
+#     if data > answer :
+#         print("크다")
+#     elif data < answer :
+#         print("작다")
 
-print(data_1)
+# print(data_1)
 
 # 문제 13
+for i in range(1,6) :
+    data = i * "*"
+    print(data)
+
 

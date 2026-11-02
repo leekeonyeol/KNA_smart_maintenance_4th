@@ -79,7 +79,7 @@
 # # 문제 11번
 # import os
 # csv_files = []
-# report = os.listdir("data")
+# report = os.listdir("data") # 파일 목록을 리스트 형태로 반환
 # for i in report :
 #     if i.endswith(".csv") :
 #         csv_files.append(i)
@@ -110,7 +110,7 @@
 #     with open(report, "r", encoding="utf-8") as f :
 #         report_1 = csv.reader(f) # 각 행을 리스트, 문자열 형태로 반환
 #         next(report_1)
-#         rows = list(report_1)
+#         rows = list(report_1) # 그것을 리스트 형태로 받음
 #     print(len(rows))
 # else :
 #     print("파일 없음 : 경로")
