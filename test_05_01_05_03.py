@@ -466,9 +466,99 @@
 
 # print(data_1)
 
-# 문제 13
-for i in range(1,6) :
-    data = i * "*"
-    print(data)
+# # 문제 13
+# for i in range(1,6) :
+#     data = i * "*"
+#     print(data)
+
+# # 문제 14
+# found = False 
+# num = int(input("횟수:"))
+
+# for i in range(1, num + 1) :
+#     num_1 = int(input("측정값:"))
+#     if num_1 > 80 :
+#         found = True
+#         break
+
+# if found :
+#     print("발견")
+# else :
+#     print("없음")
+
+# # 문제 15
+# temps = [32, 25, 35, 28, 31, 33, 20]
+# high = []
+# for i in temps :
+#     if i > 30 :
+#         high.append(i)
+
+# print(high, len(high))
+
+# # 문제 16
+# celsius = [25, 26, 24, 28, 27]
+# celsius_1 = []
+# for i in celsius :
+#     j = i*1.8 + 32
+#     k = round(j,1)
+#     celsius_1.append(k)
+
+# print(celsius_1)
+
+# # 문제 17
+# temps = [32, 25, 36, 28, 31]
+# count = 0
+# count_1 = 0
+
+# for i in temps :
+#     if i > 30 :
+#         count += i
+#         count_1 += 1
+
+# if count is not 0 :
+#     print(count, count_1, count/count_1)
+# else :
+#     print("고온 없음")
+
+# # 문제 18
+# temps = [25, 32, 28, 35, 19, 17, 31]
+# high = []
+# low = []
+
+# for i in temps :
+#     if i >= 30 :
+#         high.append(i)
+#     elif i < 20 :
+#         low.append(i)
+
+# print(high,low)
+
+# # 문제 19
+# temps = [25, 32, 28, 35, 19, 41]
+# max_value = temps[0]
+# data = 0
+# data_1 = 0
+# count = 0
+# count_1 = 0
+# for i in temps :
+#     data += i
+#     data_1 += 1
+#     if i > 30 :
+#         count += i
+#         count_1 += 1
+#     if i > max_value :
+#         max_value = i
+
+# print(data/data_1)
+# print(count_1, count/count_1)
+# print(max_value)
+
+# 문제 20
+while True :
+    data = input("측정값:")
+    
+
+
+
 
 

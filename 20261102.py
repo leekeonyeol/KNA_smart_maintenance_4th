@@ -54,10 +54,10 @@
 
 # # 실습 4
 # f = None # 이차 에러 방지
-# try :
+# try : # 시도해봐 
 #     f = open("data/09_ict_inspection_dirty_15_261102_12.csv","r",encoding="utf-8")
 #     text = f.read()
-# except FileNotFoundError :
+# except FileNotFoundError : # 다음 같은 오류이면
 #     print("오류 발생")
 # else :
 #     print(text, "성공")
@@ -96,6 +96,7 @@ for i in data :
     path = os.path.join("data",i)
     try :
         with open (path,"r",encoding="utf-8") as f :
+               f.readlines()
                count += 1
     except FileNotFoundError :
         count_1 += 1
