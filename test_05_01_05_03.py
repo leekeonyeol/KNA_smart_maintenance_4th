@@ -554,9 +554,58 @@
 # print(max_value)
 
 # 문제 20
-while True :
-    data = input("측정값:")
-    
+# total = 0
+# count = 0
+# while True :
+#     data = input("측정값:")
+#     if data == "q" :
+#         break
+#     v = int(data)
+#     if v < 0 :
+#         continue
+#     total += v
+#     count += 1
+
+# print("합",total,"개수",count)
+
+# # 문제 21 ***
+# total = 0
+# i = 0
+# while total <= 500 : # 조건이 참인 경우 계속 실행
+#     i += 1
+#     total += i
+# print(i, "까지 더하면", total)
+
+# # 문제 22
+# found = False 
+# for i in range(2,10) :
+#     for j in range(1,10) :
+#         times = i*j
+#         if times > 50 :
+#             found = True
+#             break
+#         print(i,"x",j,"=",times)
+#     if found :
+#       break    
+#     print("---")
+
+# 문제 23
+data = [72, 85, 90, 64, 88, 79, 95]
+found = False
+streak = 0
+for i in data :
+    if i > 80 :
+        streak += 1
+        if streak >= 2 :
+            found = True
+            break
+    else :
+        streak = 0
+
+if found :
+    print("연속 이상 발견")
+else :
+    print("없음")
 
 
 

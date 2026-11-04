@@ -9,7 +9,7 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 DATA_PATH = "data/09_ict_inspection_dirty_15_261102_2.csv"
 REPORT_PATH = BASE / "09_report.txt"
-RUN_TO_STEP = 5  # 실습 1 완성 후 2, ... 6으로 변경
+RUN_TO_STEP = 6  # 실습 1 완성 후 2, ... 6으로 변경
 
 
 def read_csv_data(path) :
@@ -89,9 +89,9 @@ def save_report(path, total_rows, valid_rows, rejected, stats):
     lines.append(f"제외 행: {len(rejected)}")
 
     if stats is not None :
-        lines.append(f"평균: {stats['mean']:.2f}")
-        lines.append(f"최대: {stats['max']}")
-        lines.append(f"최소: {stats['min']}")
+        lines.append(f"평균: {stats["mean"]:.2f}")
+        lines.append(f"최대: {stats["max"]}")
+        lines.append(f"최소: {stats["min"]}")
 
     with open (path, "w", encoding="utf-8",newline="") as f :
         f.write("\n".join(lines))
@@ -100,9 +100,15 @@ def save_report(path, total_rows, valid_rows, rejected, stats):
 
 def verify_part_counts(valid_rows):
     """[실습 6] 유효 행을 부품별로 다시 묶고 합계가 전체와 같은지 확인."""
+    # "부품별로 쪼개서 센 건수를 다 더하면, 원래 유효 행 개수와 같은가?"
     # TODO: group_by_part(valid_rows)를 재사용하고
     # 각 부품에 calc_stats(part_rows, 2)를 적용해 건수를 합산하세요.
-    raise NotImplementedError("실습 6: 부품별 검증 함수를 완성하세요")
+    by_valid, _ = group_by_part(valid_rows) # 정상 데이터 15건 -> 부품명별로 분류 / _: 부품명 누락 건수를 사용x
+
+    check_sum = 0
+    for v in sorted(by_valid) :
+        check_sum += calc_stats(by_valid[v], 2)["count"]
+    print(check_sum == len(valid_rows))
 
 
 def main():
