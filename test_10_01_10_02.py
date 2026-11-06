@@ -83,10 +83,16 @@ import numpy as np
 # print(round(a.mean(), 1))
 
 # 문제 10번
-ct = np.array([15800, 15750, 15820, 15790, 21207, 15810, 15770, 15830])
+# ct = np.array([15800, 15750, 15820, 15790, 21207, 15810, 15770, 15830])
 
-print(ct.mean(), ct.std())
-a = ct - ct.mean()
-b = a > ct.std()
-print(b)
-print(ct[b], np.arange(1, ct.size + 1)[b])
+# print(ct.mean(), ct.std())
+# a = ct - ct.mean()
+# b = a > ct.std()
+# print(b)
+# print(ct[b], np.arange(1, ct.size + 1)[b]) # TRUE 해당하는 값만 추출
+# print(round(ct[~b].mean(),1))
+# print(np.median(ct))
+
+# 문제 11번
+table = np.array([[72, 2.3], [95, 6.8], [70, 2.0], [71, 2.4]])
+base = np.array([70, 2.0])

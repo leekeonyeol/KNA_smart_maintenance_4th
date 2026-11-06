@@ -590,22 +590,24 @@
 #     print("---")
 
 # 문제 23
-data = [72, 85, 90, 64, 88, 79, 95]
-found = False
-streak = 0
-for i in data :
-    if i > 80 :
-        streak += 1
-        if streak >= 2 :
-            found = True
-            break
-    else :
-        streak = 0
+# data = [72, 85, 90, 64, 88, 79, 95]
+# found = False
+# streak = 0
+# for i in data :
+#     if i > 80 :
+#         streak += 1
+#         if streak >= 2 :
+#             found = True
+#             break
+#     else :
+#         streak = 0
 
-if found :
-    print("연속 이상 발견")
-else :
-    print("없음")
+# if found :
+#     print("연속 이상 발견")
+# else :
+#     print("없음")
+
+# 문제 24
 
 
 
