@@ -608,8 +608,54 @@
 #     print("없음")
 
 # 문제 24
+# sensors = [[25, 26, 24], [30, 31, 29], [28,35, 33]]
+# list = []
+# for i in sensors :
+#     mean = sum(i) / len(i)
+#     if mean > 30 :
+#         list.append(mean)
+#     print(mean)
+# print(list)
 
+# # 문제 25번
+# temps = [25, 32, 28, 35, 24, 31, 27, 34, 29, 35]
+# high = []
 
+# for i in temps :
+#     if i > 30 :
+#         high.append(i)
+# print(high)
+# print(len(high), sum(high) / len(high))
+# a = sum(high) / len(high)
+# b = sum(temps) / len(temps)
+# print(a - b)
+
+# 문제 26번
+# data = [25, -1, 32, 28, -1, 35]
+# valid = []
+# count = 0
+# for i in data :
+#     if i == -1 :
+#         continue
+#     valid.append(i)
+
+# for j in valid :
+#     count += j
+
+# print(count / len(valid))
+
+# 문제 27번
+data = [25, 32, 28, 35, 27]
+i = 0
+found = False
+while i < len(data) :
+    if data[i] > 33 :
+        print( f"{i}번 위치에서 {data[i]} 발견")
+        found = True
+        break
+    i += 1
+if not found :
+    print("없음")
 
 
 

@@ -106,13 +106,12 @@ import numpy as np
 # print(np.round(table.std(axis = 0),2))
 
 # 문제 12번
-data = np.genfromtxt("data/10_mct_tool_18_261104.csv", delimiter=",", skip_header=1, usecols=4)
+# data = np.genfromtxt("data/10_mct_tool_18_261104.csv", delimiter=",", skip_header=1, usecols=4)
 
-print(data.shape)
-print(data.dtype)
-print(data.mean(), round(data.std(),1), data.max(), data.min())
-a = data < 2000
-print(a.sum())
-print(np.mean(data[a]))
-d = np.argsort(data)[a]
-print(np.arange(1, data.size + 1)[a])
+# print(data.shape)
+# print(data.dtype)
+# print(data.mean(), round(data.std(),1), data.max(), data.min())
+# a = data < 2000
+# print(a.sum())
+# print(np.mean(data[a]))
+# print(np.arange(1, data.size + 1)[a])

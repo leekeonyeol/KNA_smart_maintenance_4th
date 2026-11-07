@@ -151,6 +151,56 @@
 #         report_1.writerow(j)
 
 
+# 문제 1번
+# import math
+
+
+# print(math.sqrt(16))
+# print(math.ceil(4.2))
+
+# # 문제 2번
+# from math import sqrt
+# print(sqrt(25))
+
+# # 문제 3번
+# import datetime as dt
+# print(dt.datetime.now())
+
+# # 문제 4번
+# import os
+# print(os.getcwd())
+
+# # 문제 5번
+# import os
+# path = os.path.join("data","08_press.csv")
+# print(os.path.exists(path)) # 경로에 대한것은 os.csv
+
+# # 문제 6번
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = f.readlines()
+
+# print(reader[0].strip())
+# print(len(reader))
+
+# 문제 7번
+# import csv
+# count = 0
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f) # 행들을 리스트로 구분
+#     next(reader)
+#     for row in reader :
+#         count += 1
+
+# print(count)
+
+# 문제 8번
+
+    
+
+
+
+
+
         
 
 
