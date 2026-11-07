@@ -182,4 +182,87 @@
 # if history["압력"][3] > 95 :
 #     print("입력 경고")    
     
+# 문제 1번 
+# sensors = {"모터온도": 78, "진동": 0.5, "압력": 95}
+# sensors["유량"] = 42
+# sensors["모터온도"] = 80
+# del sensors["압력"]
+# print(sensors)
 
+# # 문제 2번
+# sensors = {"모터온도": 78, "압력": 95}
+# print(sensors.get("유량",0))
+# print("압력" in sensors)
+# if "유량" not in sensors :
+#     print("유량 센서 없음")
+
+# # 문제 3번
+# temps = {"1호기": 78, "2호기": 82, "3호기": 91, "4호기": 85}
+# print(sum(temps.values()) / len(temps))
+# max_value = 0
+# max_name = None # ***
+# for key, value in temps.items() : # 같이 비교했기 때문에
+#     if value > max_value : 
+#         max_value = value
+#         max_name = key # 그 값에 해당하는 키를 같이 꺼내줌 
+# print(max_name, max_value)
+
+# 문제 4번
+# names = ["모터온도", "진동", "압력"]
+# values = [78, 0.5, 95]
+# new_data = {"모터온도": 82, "유량": 40}
+
+# senors = dict(zip(names,values)) # ***
+# print(senors)
+# senors.update(new_data)
+# print(senors)
+# print(len(senors))
+
+# # 문제 5번
+# values = {"모터온도": 95, "진동": 0.4, "압력": 88, "유량": 30}
+# limits = {"모터온도": 90, "진동": 0.5, "압력": 85, "유량": 50}
+# result = []
+# for key, value in values.items() :
+#     if value > limits[key] :
+#         result.append(key)
+# print(result)
+
+# 문제 6번
+# plant = { "1번모터": {"온도": 78, "상태": "정상"}, "2번펌프": {"압력": 95, "상태": "경고"}, "3번팬": {"진동": 0.9, "상태": "경고"},}
+# print(plant["2번펌프"])
+# data = []
+# for key, value in plant.items() :
+#     if value["상태"] == "경고" :
+#         data.append(key)
+# print(data)
+# plant["1번모터"]["상태"] = "점검중"
+# print(plant)
+
+# 문제 7번
+# rows = ["온도,78", "압력,95", "진동,0.5"]
+# limits = {"온도": 70, "압력": 90, "진동": 1.0}
+# row = {}
+
+# for i in rows :
+#     a = i.split(",")
+#     row[a[0]] = float(a[1])
+# print(row)
+# b = sum(row.values())/len(row)
+# print(round(b,1))
+
+# c = set()
+# for key, value in row.items() :
+#     if value > limits[key] :
+#         c.add(key)
+
+# print(sorted(c))
+
+# 문제 8번
+# history = { "모터온도": [78, 79, 80, 85], "압력": [90, 92, 95, 97],}
+# for key, value in history.items() :
+#     a = sum(value) / len(value)
+#     b = max(value)
+#     print(a,b)
+
+# if history["압력"][3] > 95 :
+#     print("압력 경고")

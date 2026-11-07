@@ -194,9 +194,120 @@
 # print(count)
 
 # 문제 8번
+# import csv 
+# currents = []
 
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f) 
+#     next(reader)
+#     for i in reader :
+#         j = float(i[4])
+#         currents.append(j)
+
+# print(max(currents))
+
+# # 문제 9번
+# import csv
+
+# with open("data/result.csv", "w", encoding="utf-8", newline="") as f :
+#     writer = csv.writer(f)
+#     writer.writerow(["시각", "설비"])
+#     writer.writerow(["09:00", "PUMP-01"])
+
+# # 문제 10번
+# import csv
+
+# with open("data/log.txt", "w", encoding="utf-8", newline="") as f :
+#     f.write(" 점검 시작 \n")
+
+# with open("data/log.txt", "a", encoding="utf-8", newline="") as f :
+#     f.write(" 점검 종료 ")
     
+# with open("data/log.txt", "r", encoding="utf-8") as f :
+#     print(f.read())
 
+# 문제 11번
+# import os
+# csv_files = []
+# data = os.listdir("data")
+# for i in data :
+#     if i.endswith(".csv") :
+#         csv_files.append(i)
+
+# for j in csv_files :
+#     print(os.path.join("data",j)) # print가 포문 안에 있어야 전체가 출력
+
+# 문제 12번
+# import random
+# import math
+# valid = []
+
+# for i in range(5) :
+#     count = random.randint(1,100)
+#     valid.append(count)
+
+# for i in valid : 
+#     print(round(math.sqrt(i),2))
+
+# 문제 13번 
+# import os 
+# import csv
+# path = os.path.join("data", "08_press_13_261029_3.csv")
+
+# if os.path.exists(path) == True :
+#     with open(path, "r", encoding="utf-8") as f :
+#         reader = csv.reader(f)
+#         next(reader)
+#         reader_1 = list(reader) # 리스트 안에 리스트 
+#         print(len(reader_1))
+# else :
+#     print("파일 없음: 경로")
+
+# 문제 14번 ***
+# import csv
+
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     header = next(reader)
+#     abnormal = []
+#     for i in reader :
+#         if int(i[5]) == 1 :
+#             abnormal.append(i)
+            
+
+# with open("data/08_press_abnormal.csv", "w", encoding="utf-8", newline="") as f :
+#     writer = csv.writer(f)
+#     writer.writerow(header)
+#     for j in abnormal :
+#         writer.writerow(j)
+
+# 문제 15번
+# import csv
+# LIMIT = 90
+
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     header = next(reader)
+#     over = []
+#     for i in reader :
+#         if float(i[4]) > LIMIT :
+#             over.append(i)
+
+# with open("data/over.csv", "w", encoding="utf-8", newline="") as f :
+#     writer = csv.writer(f)
+#     writer.writerow(header)
+#     for j in over :
+#         writer.writerow(j)      
+
+# # 문제 16번
+# import csv 
+# result = {}
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     next(reader)
+#     for i in reader :        
+#         result[i[0]] = i[4]
+# print(result)
 
 
 
