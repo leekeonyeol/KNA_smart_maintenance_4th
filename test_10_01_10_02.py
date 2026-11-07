@@ -94,5 +94,25 @@ import numpy as np
 # print(np.median(ct))
 
 # 문제 11번
-table = np.array([[72, 2.3], [95, 6.8], [70, 2.0], [71, 2.4]])
-base = np.array([70, 2.0])
+# table = np.array([[72, 2.3], [95, 6.8], [70, 2.0], [71, 2.4]])
+# base = np.array([70, 2.0])
+
+# a = table - base
+# print(np.round(a,1))
+# print(a[:,0] > 5)
+# b = a[:,0] > 5
+# print(np.arange(1, 5)[b]) # TRUE값에 해당하는 인덱스(위치)
+# print(np.round(table.mean(axis = 0),2))
+# print(np.round(table.std(axis = 0),2))
+
+# 문제 12번
+data = np.genfromtxt("data/10_mct_tool_18_261104.csv", delimiter=",", skip_header=1, usecols=4)
+
+print(data.shape)
+print(data.dtype)
+print(data.mean(), round(data.std(),1), data.max(), data.min())
+a = data < 2000
+print(a.sum())
+print(np.mean(data[a]))
+d = np.argsort(data)[a]
+print(np.arange(1, data.size + 1)[a])
