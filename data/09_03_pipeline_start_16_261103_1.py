@@ -36,9 +36,9 @@ def group_by_part(rows):
             dropped += 1
             continue
 
-        if key not in by_part :
-            by_part[key] = []
-        by_part[key].append(row)
+        if key not in by_part : # key 가 딕셔너리에 없으면
+            by_part[key] = [] # 빈 리스트를 밸류로 추가
+        by_part[key].append(row) # rows를 돌면서 key에 해당하는 row를 추가하겠다
     return by_part, dropped
 
 
@@ -99,10 +99,6 @@ def save_report(path, total_rows, valid_rows, rejected, stats):
 
 
 def verify_part_counts(valid_rows):
-    """[실습 6] 유효 행을 부품별로 다시 묶고 합계가 전체와 같은지 확인."""
-    # "부품별로 쪼개서 센 건수를 다 더하면, 원래 유효 행 개수와 같은가?"
-    # TODO: group_by_part(valid_rows)를 재사용하고
-    # 각 부품에 calc_stats(part_rows, 2)를 적용해 건수를 합산하세요.
     by_valid, _ = group_by_part(valid_rows) # 정상 데이터 15건 -> 부품명별로 분류 / _: 부품명 누락 건수를 사용x
 
     check_sum = 0

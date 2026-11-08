@@ -9,58 +9,83 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 DATA_PATH = BASE / "data" / "09_ict_inspection_dirty_15_261102_2.csv"
 REPORT_PATH = BASE / "09_report.txt"
-RUN_TO_STEP = 2  # 실습 1 완성 후 2, ... 6으로 변경
+RUN_TO_STEP = 5  # 실습 1 완성 후 2, ... 6으로 변경
 
 
-def read_csv_data(path) :
-    with open (path, "r", encoding="utf-8") as f :
-        text = csv.reader(f)
-        header = next(text)
-        rows = list(text)
-    return header, rows
-
-try :
-    header, rows = read_csv_data(DATA_PATH) 
-except FileNotFoundError :
-    header, rows = [], []
-
+def read_csv_data(path):
+    try :
+        with open (path, "r", encoding="utf-8") as f :
+            reader = csv.reader(f)
+            header = next(reader)
+            rows = list(reader)
+        return header, rows
+    except FileNotFoundError :
+        return [], []
 
 def group_by_part(rows):
     by_part = {}
     dropped = 0
-    for row in rows : # 첫 번째 순서
+    for row in rows :
         try :
             key = row[1]
-        except :
+        except IndexError :
             dropped += 1
             continue
+        if key not in by_part : # key 가 딕셔너리에 없으면
+            by_part[key] = [] # 빈 리스트를 밸류로 추가        
+        by_part[key].append(row) # rows를 돌면서 key에 해당하는 row를 추가하겠다
 
-        if key not in by_part : # 부품 하나에 값이 쌓이기 위해
-            by_part[key] = []
-        by_part[key].append(row) 
-    return by_part, dropped    # by_part와 일직선
+    return by_part, dropped
 
 def calc_stats(rows, column=2):
-    """[실습 3] {'count', 'mean', 'max', 'min'} 딕셔너리 또는 None 반환."""
-    # TODO: float(row[column])로 숫자를 모으고 변환 실패/짧은 줄은 제외
-    # 숫자가 없다면 None을 반환하세요.
-    raise NotImplementedError("실습 3: 통계 함수를 완성하세요")
+    values = []
+    for row in rows :
+        try :
+            data = float(row[column])
+        except (ValueError, IndexError) :
+            continue
+        values.append(data)
 
+    if not values :
+        return None
+    else :
+        return {"count" : len(values), "mean" : round(sum(values)/len(values),2),
+                "max": max(values),"min": min(values)}   
 
 def filter_valid_rows(rows, lo=0.0, hi=5000.0):
-    """[실습 4] (유효 행 리스트, [(CSV 줄 번호, 검사ID, 사유), ...]) 반환."""
-    # TODO: 0~5000 범위 검증, -999는 직접 raise ValueError
-    # float 변환 오류와 IndexError를 처리하고 줄 번호/사유를 남기세요.
-    # enumerate(rows, start=2)로 헤더 다음 줄부터 세어보세요.
-    raise NotImplementedError("실습 4: 유효 데이터 검증 함수를 완성하세요")
-
+    valid = []
+    rejected = []
+    for n, row in enumerate(rows, start=2) :
+        try :
+            check_id = row[0]
+            data = float(row[2])
+            if not (lo <= data <= hi) :
+                raise ValueError (" 범위 밖 ")
+            valid.append(row)
+        except IndexError :
+            rejected.append((n, check_id, "측정값 열 부족"))
+            continue
+        except ValueError as a :
+            rejected.append((n, check_id, str(a)))
+            continue
+    return valid, rejected
 
 def save_report(path, total_rows, valid_rows, rejected, stats):
-    """[실습 5] 리포트 텍스트 파일 저장."""
-    # TODO: 전체/유효/제외 건수, 측정값 평균/최대/최소를 lines에 모으고
-    # with open(path, 'w', encoding='utf-8')로 저장하세요.
-    # 원본에 측정값의 물리 단위가 없으므로 임의로 '도'를 붙이지 마세요.
-    raise NotImplementedError("실습 5: 리포트 저장 함수를 완성하세요")
+    lines = []
+    lines.append(f"전체: {total_rows}행")
+    lines.append(f"유효: {len(valid_rows)}건")
+    lines.append(f"제외: {len(rejected)}건")
+
+    if stats is not None :
+        lines.append(f"평균: {stats["count"]:.2f}")
+        lines.append(f"최대: {stats["max"]}")
+        lines.append(f"최소: {stats["min"]}")
+    
+    with open(path, "w", encoding="utf-8", newline="") as f :
+        f.write("\n".join(lines))
+
+    
+
 
 
 def verify_part_counts(valid_rows):

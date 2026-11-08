@@ -149,28 +149,34 @@ import numpy as np
 # print(np.mean(data))
 
 # 실습 2번
-data = np.genfromtxt("data/11_hydraulic_cooler_20_261105_2.csv", delimiter = ",", skip_header =  1, usecols = 1)
+# data = np.genfromtxt("data/11_hydraulic_cooler_20_261105_2.csv", delimiter = ",", skip_header =  1, usecols = 1)
 
-q1, q3 = np.percentile(data, [25, 75])
-print(q1,q3)
-a = q3 - q1
-print(round(a,2))
-upper = q3 + 1.5 * a
-print(round(upper,2))
-b = data[data > upper]
-print(b, (data > upper).sum()) # print( data > upper ) = false false true ...
+# q1, q3 = np.percentile(data, [25, 75])
+# print(q1,q3)
+# a = q3 - q1
+# print(round(a,2))
+# upper = q3 + 1.5 * a
+# print(round(upper,2))
+# b = data[data > upper]
+# print(b, (data > upper).sum()) # print( data > upper ) = false false true ...
 
-# 실습 3번
-data = np.genfromtxt("data/11_hydraulic_cooler_20_261105_2.csv", delimiter = ",", skip_header =  1, usecols = (0,1))
-cycle = data[:,0]
-temp = data[:,1]
+# # 실습 3번
+# data = np.genfromtxt("data/11_hydraulic_cooler_20_261105_2.csv", delimiter = ",", skip_header =  1, usecols = (0,1))
+# cycle = data[:,0]
+# temp = data[:,1]
 
-a = np.mean(temp) 
-b = np.std(temp)
-print(a, b)
-z = (temp - a) / b
-print(cycle[np.abs(z) > 2])
-print(round(np.max(np.abs(z)), 2))
+# a = np.mean(temp) 
+# b = np.std(temp)
+# print(a, b)
+# z = (temp - a) / b
+# print(cycle[np.abs(z) > 2])
+# print(round(np.max(np.abs(z)), 2))
 
-
+# 실습 1번 
+data = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=(0,1))
+time = data[:,0]
+cycle = data[:,1]
+print(np.argmax(cycle))
+print(time[np.argmax(cycle)])
+print(cycle[np.argmax(cycle)])
 
