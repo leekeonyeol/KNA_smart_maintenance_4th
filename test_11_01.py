@@ -35,35 +35,35 @@ import numpy as np
 # print(counts)
 
 # 실습 5번
-time = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=1)
-pres = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=2)
-make = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=3)
-shap = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=4)
+# time = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=1)
+# pres = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=2)
+# make = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=3)
+# shap = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=4)
 
-a = np.stack([time, pres, make, shap])
-print(a.shape)
-b = a[:,-10:]
-print(b)
-print(b.shape)
+# a = np.stack([time, pres, make, shap])
+# print(a.shape)
+# b = a[:,-10:]
+# print(b)
+# print(b.shape)
 
-# 실습 6번
-data = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter = ",", skip_header = 1, usecols =  (0, 1, 2))
+# # 실습 6번
+# data = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter = ",", skip_header = 1, usecols =  (0, 1, 2))
 
-time = data[:,0]
-cycle = data[:,1]
-pressure = data[:,2]
+# time = data[:,0]
+# cycle = data[:,1]
+# pressure = data[:,2]
 
-a = np.argmax(cycle)
-print(a)
-b = cycle[a]
-print(b)
+# a = np.argmax(cycle)
+# print(a)
+# b = cycle[a]
+# print(b)
 
-c = np.abs(np.diff(cycle))
-d = np.argmax(c)
-print(d)
+# c = np.abs(np.diff(cycle))
+# d = np.argmax(c)
+# print(d)
 
-e = (cycle > 50) | (pressure < 150) 
-print(e.sum() / len(e) * 100)
+# e = (cycle > 50) | (pressure < 150) 
+# print(e.sum() / len(e) * 100)
 
-f = np.argsort(cycle)
-print(f[-3:])
+# f = np.argsort(cycle)
+# print(f[-3:])
