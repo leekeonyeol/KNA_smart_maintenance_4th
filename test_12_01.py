@@ -6,7 +6,7 @@ FS = "data/12_metro_compressor_semicolon_22_261109_2.csv"
 FD = "data/12_metro_digital_22_261109_3.csv"
 
 # 문제 1번
-df_comp = pd.read_csv(F, sep=",", encoding="utf-8")
+df_comp = pd.read_csv(F, sep=",", encoding="utf-8") # 한글을 읽기 때문에 encoding
 # print(fd_comp.head(5))
 # print(fd_comp.tail(3))
 # print(fd_comp.index[-1]) # index는 위치번호를 반환
