@@ -89,18 +89,39 @@ import pandas as pd
 # print(merged.shape)
 
 # 실습 2번
+# log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+# master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encoding="utf-8")
+
+# merged = log.merge(master, on="설비ID")
+# print(merged.shape)
+# merged_1 = log.merge(master, on="설비ID", how="left")
+# print(merged_1.shape)
+# merged_2 = log.merge(master, on="설비ID", how="outer")
+# print(merged_2.shape)
+# # inner는 짝이 있는 행만
+# # left는 짝이 있는 행 + 왼쪽에만 있는 행
+# # outer는 짝이 있는행 + 왼쪽에만 있는 행 + 오른쪽에만 있는 행
+# print(merged_1["설비ID"][merged_1["라인"].isna()])
+# print(merged_1["라인"].isna().sum())
+# print(merged_2["설비ID"][merged_2["샷"].isna()])
+
+# 실습 3번
+log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+data_1 = log.iloc[0:100].reset_index(drop=True)
+data_2 = log.iloc[100:].reset_index(drop=True)
+print(data_1.shape, data_2.shape)
+concated = pd.concat([data_1, data_2])
+print(concated, len(concated.loc[0]))
+concated_1 = pd.concat([data_1, data_2], ignore_index=True)
+print(concated_1.index[-1])
+
+# 실습 4번
 log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
 master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encoding="utf-8")
+merged = log.merge(master, on="설비ID", how="left")
+print(merged[merged["라인"].isna()])
+merged_1 = merged[merged["라인"].isna()]
+print(merged_1[merged_1["품질등급"] != "양품"])
+merged_2 = merged_1[merged_1["품질등급"] != "양품"]
+print(merged_2.sort_values(["비스킷두께"], ascending=False))
 
-merged = log.merge(master, on="설비ID")
-print(merged.shape)
-merged_1 = log.merge(master, on="설비ID", how="left")
-print(merged_1.shape)
-merged_2 = log.merge(master, on="설비ID", how="outer")
-print(merged_2.shape)
-# inner는 짝이 있는 행만
-# left는 짝이 있는 행 + 왼쪽에만 있는 행
-# outer는 짝이 있는행 + 왼쪽에만 있는 행 + 오른쪽에만 있는 행
-print(merged_1["설비ID"][merged_1["라인"].isna()])
-print(merged_1["라인"].isna().sum())
-print(merged_2["설비ID"][merged_2["샷"].isna()])
