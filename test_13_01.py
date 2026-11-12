@@ -53,10 +53,51 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # print(merged[["샷","설비ID","라인","도입연도"]].head(2).to_string(index=False))
 
 # 문제 9번
-merged_1 = log.merge(master, on="설비ID", how="inner")
-merged_2 = log.merge(master, on="설비ID", how="left")
-merged_3 = log.merge(master, on="설비ID", how="outer")
+# merged_1 = log.merge(master, on="설비ID", how="inner")
+# merged_2 = log.merge(master, on="설비ID", how="left")
+# merged_3 = log.merge(master, on="설비ID", how="outer")
 
-print(merged_2["라인"].isna().sum())
-print(merged_2["설비ID"][merged_2["라인"].isna()].head(1).tolist())
-print(merged_3[merged_3["샷"].isna()]["설비ID"])
+# print(merged_2["라인"].isna().sum())
+# print(merged_2["설비ID"][merged_2["라인"].isna()].head(1).tolist())
+# print(merged_3[merged_3["샷"].isna()]["설비ID"])
+
+# 문제 1번
+log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encoding="utf-8")
+
+# print(log.shape, master.shape)
+
+# print(log.columns.tolist())
+# print(master.columns.tolist()) # 설비ID
+
+# merged = log.merge(master, on="설비ID")
+# print(merged.shape)
+# print(merged.head(2))
+
+# 문제 2번
+# merged = log.merge(master, on="설비ID", how="inner")
+# print(len(merged))
+# merged_1 = log.merge(master, on="설비ID", how="left")
+# merged_2 = log.merge(master, on="설비ID", how="outer")
+# print(merged_1["라인"].isna().sum())
+# unmatched = merged_1[merged_1["라인"].isna()]
+# print(unmatched["설비ID"].head(2).tolist())
+
+# 문제 3번
+# log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+# a = log.iloc[:100].reset_index(drop=True)
+# b = log.iloc[100:].reset_index(drop=True) 
+# combine = pd.concat([a,b], ignore_index=True)
+# print(combine.loc[0])
+# print(combine.index[-1])
+
+# 문제 4번
+# log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+# master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encoding="utf-8")
+
+# merged = log.merge(master, on="설비ID", how="left")
+# blank = merged[merged["라인"].isna()]
+# print(len(merged) - len(blank))
+# print(len(merged[merged["품질등급"] != "양품"]))
+# a = merged[merged["품질등급"] != "양품"]
+# print(a.sort_values(["비스킷두께"], ascending=False).head(5).to_string(index=False))
