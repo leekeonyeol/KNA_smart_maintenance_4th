@@ -17,7 +17,7 @@ import numpy as np
 # a = np.abs(np.diff(cycle))
 # print(np.argmax(a))
 # b = np.argmax(a)
-# print(cycle[b], cycle[b+1])
+# print(cycle[b], cycle[b+1])))
 
 # 실습 3번
 # cyl = np.genfromtxt("data/11_diecasting_series_20_261105_1.csv", delimiter=",", skip_header=1, usecols=2)
