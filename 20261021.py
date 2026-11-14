@@ -6,7 +6,7 @@ name = "센서" # str 문자열
 ok = True   # bool 불린형 - 참/거짓
 no = False
 
-# print(type(25))))
+# print(type(25))))))
 # print(type("센서"))
 # print(type(ok))
 
