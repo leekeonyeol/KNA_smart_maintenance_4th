@@ -24,8 +24,25 @@ import numpy as np
 # print(df_comp.groupby("냉각기상태")["온도"].mean().round(2).loc["고장"] - df_comp.groupby("냉각기상태")["온도"].mean().round(2).loc["정상"])
 
 # 실습 5번
+# df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
+# print(df_comp["밸브상태"].value_counts())
+# broken = df_comp[df_comp["result"] == "고장"]
+# print(broken["밸브상태"].value_counts())
+# print((broken["밸브상태"].value_counts() / df_comp["밸브상태"].value_counts()).round(3) )
+
+# 복습
 df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
-print(df_comp["밸브상태"].value_counts())
-broken = df_comp[df_comp["result"] == "고장"]
-print(broken["밸브상태"].value_counts())
-print((broken["밸브상태"].value_counts() / df_comp["밸브상태"].value_counts()).round(3) )
+
+sensor_cols = df_comp.select_dtypes(include="number").columns.tolist()
+corr_matrix = df_comp[sensor_cols].corr()
+rows = []
+
+for i in range(len(sensor_cols)) :
+    for j in range(i + 1, len(sensor_cols)) :
+        a = sensor_cols[i]
+        b = sensor_cols[j]
+        rows.append({"지표1": a, "지표2" : b, "상관계수" : corr_matrix.loc[a,b]})
+
+pair_table = pd.DataFrame(rows)
+pair_table["절댓값"] = pair_table["상관계수"].abs()
+print(pair_table)
