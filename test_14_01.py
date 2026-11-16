@@ -1,10 +1,16 @@
 import pandas as pd 
 import numpy as np
 
+df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
+df_comp_1 = pd.read_csv("data/14_hydraulic_std_26_261112_3.csv", sep=",", encoding="utf-8")
+
 # 실습 1번
 # df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
 # print(df_comp["밸브상태"].value_counts())
 # print(df_comp["밸브상태"].value_counts(normalize=True).round(2))
+
+# print(df_comp["밸브상태"].value_counts())
+# print(df_comp["운전부하"].value_counts(normalize=True))
 
 # 실습 2번
 # df_comp = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-8")
@@ -15,6 +21,8 @@ import numpy as np
 # df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
 # a = pd.cut(df_comp["진동"], bins=[0, 0.6, 0.7, 10], labels=["약함", "보통", "강함"], right=True)
 # print(a.value_counts())
+# a = pd.cut(df_comp["진동"], bins=[0,0.6,0.7,10], labels=["약함","보통","강함"], right=True)
+# print(a.value_counts())
 
 # 실습 4번
 # df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
@@ -23,6 +31,11 @@ import numpy as np
 # print(df_comp.groupby("냉각기상태")["온도"].max())
 # print(df_comp.groupby("냉각기상태")["온도"].mean().round(2).loc["고장"] - df_comp.groupby("냉각기상태")["온도"].mean().round(2).loc["정상"])
 
+group = df_comp.groupby("냉각기상태")["온도"].mean().round(2)
+print(group)
+maxed = df_comp.groupby("냉각기상태")["온도"].max()
+print(maxed)
+print(group.loc["고장"] - group.loc["정상"])
 # 실습 5번
 # df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
 # print(df_comp["밸브상태"].value_counts())
@@ -73,14 +86,14 @@ import numpy as np
 # print(df_comp.groupby("검사결과").agg(평균온도 = ("온도","mean"), 평균진동 = ("진동","mean")))
 
 # 실습 5번
-df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
-df_comp_1 = pd.read_csv("data/14_hydraulic_std_26_261112_3.csv", sep=",", encoding="utf-8")
+# df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
+# df_comp_1 = pd.read_csv("data/14_hydraulic_std_26_261112_3.csv", sep=",", encoding="utf-8")
 
-merged = df_comp.merge(df_comp_1, on="냉각기상태", how="left")
-print(merged.shape)
-cutted = pd.cut(merged["온도"], bins=[0,40,50,200], labels=["낮음","보통","높음"], right=True)
-print(cutted.value_counts())
-total = merged.groupby("냉각기상태").agg(측정수=("온도","count"),평균온도=("온도","mean"),온도표준편차=("온도","std"),
-                            평균냉각효율=("냉각효율","mean"), 평균위험도=("위험도","mean"),
-                            평균점검주기=("권장점검주기","mean"))
-print(total)
+# merged = df_comp.merge(df_comp_1, on="냉각기상태", how="left")
+# print(merged.shape)
+# cutted = pd.cut(merged["온도"], bins=[0,40,50,200], labels=["낮음","보통","높음"], right=True)
+# print(cutted.value_counts())
+# total = merged.groupby("냉각기상태").agg(측정수=("온도","count"),평균온도=("온도","mean"),온도표준편차=("온도","std"),
+#                             평균냉각효율=("냉각효율","mean"), 평균위험도=("위험도","mean"),
+#                             평균점검주기=("권장점검주기","mean"))
+# print(total)

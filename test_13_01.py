@@ -24,6 +24,10 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # print(t.loc[0,"샷"], t.iloc[0,0])
 # print(s.reset_index().shape)
 
+# s = small.sort_values("형체력", ascending=False)
+# print(s.loc[0,"샷"], s.iloc[0,0])
+# t = s.reset_index(drop = True) # 기존 인덱스 버림
+
 # 문제 4번
 # a = log["비스킷두께"] >= 16
 # print(a.sum(), len(log[a]))
@@ -41,11 +45,15 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # print(log["설비ID"].str.contains("A").sum()) # 문자를 검색하므로 str이 중요! 
 # print((log["설비ID"] == "DIE-A-01").sum())
 
+# print(log["품질등급"].isin(["주의","불량"]).sum())
+# print(log["비스킷두께"].between(10,16).sum())
+# print(log["설비ID"].str.contains("A").sum())
+
 # 문제 7번
 # print(log.sort_values("비스킷두께", ascending=False)["샷"].head(5).tolist())
 # print(log.sort_values(["품질등급", "사이클타임"], ascending=[True, False]).head(5)["샷"].tolist())
 # m = log.sort_values(["품질등급", "사이클타임"], ascending=[True, False]).head(5)["샷"].tolist()
-
+# print(log.sort_values(["품질등급","사이클타임"], ascending=[True,False]).head(5)["샷"])
 # 문제 8번
 # print(log.shape, master.shape)
 # merged = log.merge(master, on="설비ID") # 기본은 inner
@@ -89,6 +97,12 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # b = log.iloc[100:].reset_index(drop=True) 
 # combine = pd.concat([a,b], ignore_index=True)
 # print(combine.loc[0])
+# print(combine.index[-1])
+
+# log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+# a = log.iloc[0:100].reset_index(drop=True)
+# b = log.iloc[100:].reset_index(drop=True)
+# combine = pd.concat([a,b], ignore_index=True)
 # print(combine.index[-1])
 
 # 문제 4번
