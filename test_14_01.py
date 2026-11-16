@@ -163,18 +163,19 @@ qc = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-
 # print(temp_table.loc["전체","전체"].round(2))
 
 # 문제 11번
-print(qc["검사결과"].value_counts())
-print(qc["검사결과"].value_counts(normalize=True))
+# print(qc["검사결과"].value_counts())
+# print(qc["검사결과"].value_counts(normalize=True))
 
-sensor_cols = qc.select_dtypes(include="number").columns.tolist()
-cor_matrix = qc[sensor_cols].corr()
-rows = []
+# sensor_cols = qc.select_dtypes(include="number").columns.tolist()
+# cor_matrix = qc[sensor_cols].corr()
+# rows = []
 
-for i in range(len(sensor_cols)) :
-    for j in range(i+1, len(sensor_cols)) :
-        a = sensor_cols[i]
-        b = sensor_cols[j]
-        rows.append({"지표1" : a, "지표2" : b, "상관계수" : cor_matrix.loc[a,b]})
+# for i in range(len(sensor_cols)) :
+#     for j in range(i+1, len(sensor_cols)) :
+#         a = sensor_cols[i]
+#         b = sensor_cols[j]
+#         rows.append({"지표1" : a, "지표2" : b, "상관계수" : cor_matrix.loc[a,b]})
 
-pair_table = pd.DataFrame(rows)
-print(pair_table)
+# pair_table = pd.DataFrame(rows)
+# pair_table["절댓값"] = pair_table["상관계수"].abs()
+

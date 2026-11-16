@@ -51,12 +51,10 @@ import pandas as pd
 # print((a==1).sum())
 # print((a==2).sum())
 
-# 실습 7번
-df_15 = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encoding="utf-8")
+df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encoding="utf-8")
+log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encoding="utf-8")
 
-sum_na = df_15.isna().sum()
-print(sum_na[sum_na > 0])
-sum_na = pd.DataFrame({"결측열" : sum_na})
-print(sum_na)
-print(sum_na.loc[ sum_na > 0, "결측열"])
-# print(df_15.loc[:,])
+# 문제 1번
+print(df.shape)
+print(int(df.isna().sum().sum())) # 행들을 전부 합침
+print(df.isna().sum(axis=1)>0) # 열들을 전부 합침
