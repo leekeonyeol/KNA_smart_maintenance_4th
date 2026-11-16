@@ -27,3 +27,4 @@ log_row = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv")
 
 # d = df.drop(columns = c)
 # print(d.shape)
+print(2)
