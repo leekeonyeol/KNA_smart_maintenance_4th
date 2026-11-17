@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 
+df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encoding="utf-8")
+log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encoding="utf-8")
+
 # 실습 2번
 # df_15 = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encoding="utf-8")
 # print(df_15.shape)
@@ -51,8 +54,8 @@ import pandas as pd
 # print((a==1).sum())
 # print((a==2).sum())
 
-df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encoding="utf-8")
-log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encoding="utf-8")
+# df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encoding="utf-8")
+# log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encoding="utf-8")
 
 # 문제 1번
 # print(df.shape)
@@ -136,3 +139,112 @@ log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encodi
 
 # print(fill_mask[fill_mask].index.tolist())
 # print(df["스크루속도"].isna().sum())
+
+# 문제 1번
+# print(df.shape)
+# print(df.isna().sum().sum())
+# print((df.isna().sum()>0).sum()) 
+
+# 문제 2번
+# count = df.isna().sum()
+# print(count)
+# mean = df.isna().mean()
+# ratio =round(mean*100,2)
+# print(ratio[ratio > 0])
+
+# 문제 3번
+# count = df.isna().sum(axis=1)
+
+# print((count == 0).sum())
+# print((count > 0).sum())
+# print((count >= 5).sum())
+
+# 문제 4번
+# print(df.shape)
+# print(df.dropna().shape)
+# print(df.dropna(axis=1).shape)
+# print(df.dropna(how="all").shape)
+# print(df.dropna(thresh=20).shape)
+
+# 문제 5번
+# example = pd.Series([1, 2, 3, 4, 100, None])
+
+# print(example.mean())
+# print(example.median())
+
+# a = example.fillna(example.median())
+# print(a.tolist())
+# b = example.fillna(example.mean())
+# print(b.tolist())
+
+# 문제 6번
+# series_demo = pd.Series([None, 73.0, None, None, 75.0])
+# a = series_demo.ffill()
+# print(a)
+# b = series_demo.bfill()
+# print(b)
+# c = series_demo.ffill(limit=1)
+# print(c)
+
+# 문제 7번
+# text = pd.Series(['1호기', ' ', '', None], dtype='string')
+
+# print(text.isna().sum())
+# replaced = text.str.strip().replace(" ","pd.NA")
+# print(replaced.isna().sum())
+
+# 문제 8번
+# log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv")
+# print(log.isna().sum().sum())
+# log_1 = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", na_values={"배럴온도" : [999], "스크루속도" : [-999]})
+# print(log_1)
+# NA_RULES = {"배럴온도" : [999], "스크루속도" : [-999], "사출압력" : [0]}
+# log_2 = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", na_values=NA_RULES)
+# print(log_2)
+
+# 문제 9번
+# feature_cols = df.columns.tolist()
+# isna_count = df[feature_cols].isna().mean() * 100
+# isna_list = isna_count[isna_count > 40].index.tolist()
+# result = df.drop(columns= isna_list)
+# print(result.shape)
+# print(result.columns.tolist())
+
+# 문제 10번
+# a = df
+# b = df.dropna()
+# c = df.dropna(thresh=20)
+# rows = []
+
+# cases = { "원본" : a, "기본 행 제거" : b, "thresh20" : c}
+
+# for name, d in cases.items() :
+#     rows.append({"방식" : name, "행수" : len(d), 
+#                  "손실률" : 1 - len(d)/len(df),
+#                   "불량 수" : d["불량여부"].sum(),
+#                    "불량비율" : d["불량여부"].mean()})
+
+# summart = pd.DataFrame(rows)
+# print(summart)
+
+# 문제 11번
+# work =df.copy()
+
+# mask = work[work["최대사출압"].isna()].index.tolist()
+
+# mean_val = work["최대사출압"].mean()
+# median_val = work["최대사출압"].median()
+
+# work.loc[work["최대사출압"].isna(),"최대사출압"] = mean_val
+# filled = work["최대사출압"].fillna(mean_val)
+# print(filled)
+
+# 문제 11번
+# work = df.copy()
+
+# mean_val = work["최대사출압"].mean()
+# median_val = work["최대사출압"].median()
+
+# filled = work["최대사출압"].fillna(mean_val)
+
+# print(work["최대사출압"])
