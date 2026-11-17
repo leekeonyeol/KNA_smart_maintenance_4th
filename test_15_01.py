@@ -55,6 +55,84 @@ df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", sep=",", encodin
 log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encoding="utf-8")
 
 # 문제 1번
-print(df.shape)
-print(int(df.isna().sum().sum())) # 행들을 전부 합침
-print(df.isna().sum(axis=1)>0) # 열들을 전부 합침
+# print(df.shape)
+# print(int(df.isna().sum().sum())) # 행들을 전부 합침
+# print(df.isna().sum(axis=1)>0) # 열들을 전부 합침
+
+# 실습 4번
+# print(df.shape)
+# print(df.dropna().shape)
+# print(df.dropna(thresh=20).shape)
+
+
+
+# comparison_rows=[]
+
+# for name, frame in version.items() :
+#     comparison.append({"방식" : name, "행수" : len(frame),
+#                        "손실율" : (1-len(frame)) / len(df),
+#                        "불량수" : int(frame["불량여부"].sum())})
+
+# comparison = pd.dataframe(comparison_rows)
+
+# 실습 5번
+# copied = df.copy()
+
+# mask = copied["최대사출압"].isna()
+# print(mask.sum())
+
+# mean_val = copied["최대사출압"].mean()
+# median_val = copied["최대사출압"].median()
+
+# filled_mean = copied["최대사출압"].fillna(mean_val)
+# filled_median = copied["최대사출압"].fillna(median_val)
+
+# print(filled_mean.isna().sum())
+# print(filled_median.isna().sum())
+
+# print(filled_mean.loc[mask].head(3))
+# print(filled_median.loc[mask].head(3))
+
+# 실습 6번
+# NA_RULES = {"배럴온도":[999],"스크루속도":[-999],"사출압력":[0]}
+
+# df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv", na_values=NA_RULES, parse_dates=["시간"])
+
+# unknown = df[df["설비"].isna()].copy()
+# rest = df[df["설비"].notna()].sort_values(["설비","시간"]).reset_index(drop=True)
+
+# g = rest.groupby("설비")
+# filled = g["온도"].ffill(limit=1)
+
+
+# 실습 7번
+# df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv")
+
+# print(df[df["스크루속도"].isna()].index.tolist())
+# print(df.groupby("사출기")["스크루속도"].count()) # 유효한 행만 센다
+
+# df["그룹평균"] = df.groupby("사출기")["스크루속도"].transform("mean")
+
+# valid_cnt = df.groupby("사출기")["스크루속도"].transform("count")
+# fill_mask = df["스크루속도"].isna() & (valid_cnt >= 3)
+
+# df.loc[fill_mask,"스크루속도"] = df.loc[fill_mask,"그룹평균"]
+
+# print(fill_mask[fill_mask].index.tolist())
+# print(df["스크루속도"].isna().sum())
+
+# 실습 7번
+# df = pd.read_csv("data/15_사출성형_공정_28_261113_1.csv")
+
+# print(df[df["스크루속도"].isna()].index.tolist())
+# print(df.groupby("사출기")["스크루속도"].count())
+
+# df["그룹평균"] = df.groupby("사출기")["스크루속도"].transform("mean")
+
+# valid_cnt = df.groupby("사출기")["스크루속도"].transform("count")
+# fill_mask = df["스크루속도"].isna() & (valid_cnt >= 3)
+
+# df.loc[fill_mask,"스크루속도"] = df.loc[fill_mask,"그룹평균"]
+
+# print(fill_mask[fill_mask].index.tolist())
+# print(df["스크루속도"].isna().sum())
