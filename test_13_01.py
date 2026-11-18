@@ -70,8 +70,8 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # print(merged_3[merged_3["샷"].isna()]["설비ID"])
 
 # 문제 1번
-log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
-master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encoding="utf-8")
+# log = pd.read_csv("data/13_diecasting_shot_24_261110_2.csv", sep=",", encoding="utf-8")
+# master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encoding="utf-8")
 
 # print(log.shape, master.shape)
 
@@ -115,3 +115,37 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # print(len(merged[merged["품질등급"] != "양품"]))
 # a = merged[merged["품질등급"] != "양품"]
 # print(a.sort_values(["비스킷두께"], ascending=False).head(5).to_string(index=False))
+
+# 문제 1번
+# print(type(small["형체력"])) # Series
+# print(small["형체력"].head(3).tolist())
+# print(type(small[["형체력","실린더압력"]])) # DataFrame
+# print(small[["형체력","실린더압력"]].shape)
+
+# 문제 2번
+# a = small.head(5)
+# b = small[["형체력","실린더압력"]].loc[0:4]
+# c = a.iloc[:,[2,6]]
+# print(b.shape == c.shape) # True
+
+# 문제 3번
+# a = small["형체력"].sort_values(ascending=False)
+# print(a.loc[0], a.iloc[0])
+# b = small["형체력"].sort_values(ascending=False).reset_index(drop=True)
+# print(b.loc[0], b.iloc[0])
+
+# 문제 4번
+# print((log["비스킷두께"] >= 16).sum())
+# print(len(log[log["비스킷두께"] >= 16]))
+# print((log["비스킷두께"] < 16).sum())
+# print((log["비스킷두께"].isna()).sum())
+
+# 문제 5번
+# print(((log["비스킷두께"] >= 16) & (log["사이클타임"] >= 25)).sum())
+# print((log["품질등급"] != "불량").sum())
+
+# 문제 6번
+# print((log["설비ID"].str.contains("A")).sum())
+# print((log["비스킷두께"].between(10,16)).sum())
+
+# 문제 7번

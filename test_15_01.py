@@ -246,5 +246,6 @@ log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encodi
 # median_val = work["최대사출압"].median()
 
 # filled = work["최대사출압"].fillna(mean_val)
+# filled = work["최대사출압"].fillna(median_val)
 
 # print(work["최대사출압"])
