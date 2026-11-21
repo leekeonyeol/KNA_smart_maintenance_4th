@@ -149,3 +149,18 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # print((log["비스킷두께"].between(10,16)).sum())
 
 # 문제 7번
+# print(log.sort_values("비스킷두께", ascending=False)["샷"].head(5).tolist())
+# print(log.sort_values("품질등급", ascending=True)["샷"].head(5).tolist())
+
+# 문제 8번
+# merged = log.merge(master, on="설비ID", how="inner")
+# print(merged[["샷","설비ID","라인","도입연도"]].head(2).to_string(index=False))
+
+# 문제 9번
+# merged_inner = log.merge(master, on="설비ID", how="inner")
+# merged_left = log.merge(master, on="설비ID", how="left")
+# merged_outer = log.merge(master, on="설비ID", how="outer")
+
+# print(merged_left["라인"].isna().sum())
+# print(merged_left[merged_left["라인"].isna()]["설비ID"].head(1))
+# print(merged_outer[merged_outer["샷"].isna()]["설비ID"])

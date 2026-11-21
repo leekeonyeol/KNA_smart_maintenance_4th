@@ -100,7 +100,7 @@ import numpy as np
 #                             평균점검주기=("권장점검주기","mean"))
 # print(total)
 
-df_comp = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
+df = pd.read_csv("data/14_hydraulic_26_261112_1.csv", sep=",", encoding="utf-8")
 spec = pd.read_csv("data/14_hydraulic_std_26_261112_3.csv", sep=",", encoding="utf-8")
 qc = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-8")
 
@@ -179,3 +179,70 @@ qc = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-
 # pair_table = pd.DataFrame(rows)
 # pair_table["절댓값"] = pair_table["상관계수"].abs()
 
+# 문제 1번
+# print(df["밸브상태"].value_counts())
+
+# 문제 2번
+# print(df["result"].value_counts(normalize=True).round(3))
+
+# 문제 3번
+# cutted = pd.cut(df["온도"], bins=[0,40,50,200], labels=["낮음","보통","높음"], right=True)
+# print(cutted.value_counts())
+# print(cutted.isna().sum())
+
+# 문제 4번
+# print(df.groupby("냉각기상태")["온도"].agg(["mean","max"]).round(2))
+
+# 문제 5번
+# print(df[["온도","진동","압력","냉각효율"]].corr().round(3))
+
+# 문제 6번
+# summary = df.groupby("냉각기상태").agg(평균온도=("온도","mean"), 온도표준편차=("온도","std"),
+#                                   평균진동=("진동","mean"))
+# print(summary.round(3))
+# print(summary.loc["고장","평균온도"] - summary.loc["정상","평균온도"])
+
+# 문제 7번
+# ct = pd.crosstab(df["냉각기상태"], df["운전부하"]) # 크로스탭은 사이클수 
+# print(ct)
+# mean_table = df.groupby(["냉각기상태","운전부하"])["온도"].mean().unstack() # 언스택은 어떤 인데스를 열로 올릴지 결정
+# print(mean_table.round(3))
+
+# 문제 8번
+# total = df["밸브상태"].value_counts()
+# fail = pd.crosstab(df["밸브상태"], df["result"])
+# normalize = fail["고장"] / total
+# rate = normalize.sort_values(ascending=False)
+# print(rate.index[0]) # 행의 첫번째 값
+
+# 문제 9번
+# marked = df.copy()
+
+# temp_average = df.groupby("냉각기상태")["온도"].transform("mean")
+# marked["그룹평균"] = temp_average
+# marked["편차"] = marked["온도"] - marked["그룹평균"]
+
+# print(marked[marked["편차"].abs() == marked["편차"].abs().max()][["냉각기상태","온도"]])
+# print(marked.groupby("냉각기상태")["편차"].sum())
+
+# 문제 10번
+# temp_table = df.groupby(["밸브상태","운전부하"])["온도"].mean().unstack()
+# print(temp_table)
+# temp_table_1 = pd.pivot_table(df, index="밸브상태", columns="운전부하",
+#                               values="온도", aggfunc="mean", margins=True,
+#                               margins_name="전체")
+# print(temp_table_1)
+
+# 문제 11번
+# sensor_cols = qc.select_dtypes(include="number").columns.tolist()
+# corr_matrix = qc[sensor_cols].corr()
+# rows = []
+
+# for i in range(len(sensor_cols)) :
+#     for j in range(i+1, len(sensor_cols)) :
+#         a = sensor_cols[i]
+#         b = sensor_cols[j]
+#         rows.append({"지표1" : a, "지표2" : b, "상관계수" : corr_matrix.loc[a,b]})
+
+# pair_table = pd.DataFrame(rows)
+# print(pair_table)
