@@ -249,3 +249,79 @@ log = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", sep=",", encodi
 # filled = work["최대사출압"].fillna(median_val)
 
 # print(work["최대사출압"])
+
+# 문제 1번
+# print(df.shape)
+# print(df.isna().sum().sum())
+# print((df.isna().sum() > 0).sum())
+
+# 문제 2번
+# ratio_pct = round(df.isna().sum() / len(df),1)
+# print(ratio_pct)
+# print(ratio_pct[df.isna().sum() > 0])
+
+# 문제 3번
+# print(df.isna().sum(axis=1))
+# print((df.isna().sum(axis=1) == 0).sum())
+# print((df.isna().sum(axis=1) > 0).sum())
+# print((df.isna().sum(axis=1) >= 5).sum())
+
+# 문제 4번
+# print(df.dropna().shape)
+# print(df.dropna(axis=1).shape)
+# print(df.dropna(thresh=20).shape)
+# print(df.dropna(how="all").shape)
+
+# 문제 5번
+# example = pd.Series([1, 2, 3, 4, 100, None])
+
+# meaned = example.mean()
+# medianed = example.median()
+
+# print(example.fillna(meaned).tolist())
+
+# 문제 6번
+# series_demo = pd.Series([None, 73.0, None, None, 75.0])
+
+# print(series_demo.ffill(limit=1).tolist())
+
+# 문제 7번
+# text = pd.Series(['1호기', ' ', '', None], dtype='string')
+
+# print(text.isna().sum())
+# updated = text.str.strip().replace(" ","pd.NA")
+# print(updated.isna().sum())
+
+# 문제 8번
+# print(log.isna().sum().sum())
+# NA_RULES = {"배럴온도" : [999], "스크루속도" : [-999]} 
+# r3 = pd.read_csv("data/15_사출성형_로그_28_261113_2.csv", na_values=NA_RULES)
+# print(r3)
+
+# 문제 9번
+# note = {"원본" : df, "기본 행 제거" : df.dropna(), "thresh" : df.dropna(thresh=20) }
+# rows = []
+
+# for key, data in note.items() :
+#     rows.append({"방식" : key,
+#     "행수" : len(data),
+#     "손실률" : 1 - len(data)/len(df),
+#     "불량수" : (data["불량여부"]).sum(),
+#     "불량비율" : (data["불량여부"]).mean()})
+
+# summary = pd.DataFrame(rows)
+# print(summary)
+
+# 문제 10번
+# work = df.copy()
+
+# mask = work[work["최대사출압"].isna()].index.tolist()
+
+# mean_val = work["최대사출압"].mean()
+
+# rows = []
+# for i in mask :
+#     work.loc[i,"최대사출압"] = mean_val
+
+# print(work.to_string())
+
