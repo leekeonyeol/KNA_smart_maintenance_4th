@@ -309,14 +309,126 @@
 #         result[i[0]] = i[4]
 # print(result)
 
+import math
 
+# 문제 1번
+# print(math.sqrt(16))
+# print(math.ceil(4.2))
 
+# 문제 2번
+# from math import sqrt
+# print(sqrt(25))
 
+# 문제 3번
+# import datetime as dt
+# print(dt.datetime.now())
+
+# 문제 4번
+# import os
+# print(os.getcwd())
+
+# 문제 5번
+# import os
+# joined = os.path.join("data","08_press_13_261029_3.csv")
+# print(joined)
+# print(os.path.exists(joined))
         
+# 문제 6번
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = f.readlines() # 줄 별 리스트 , readline = 첫 줄만 문자열, read = 통째로 문자열
+    
+
+# print(reader[0].strip())
+# print(len(reader))
+
+# 문제 7번
+# import csv
+# count = 0
+# with open("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     next(reader)
+#     for i in reader :
+#         count += 1
+
+# print(count)
+
+# 문제 8번
+# import csv
+# currents = []
+
+# with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     next(reader)
+#     for i in reader : # for문이 알아서 한 행씩 꺼내줘서 list로 받을 필요가 없다.
+#         currents.append(float(i[4]))
+
+# print(max(currents))
+
+# 문제 9번
+# import csv 
+
+# with open ("data/result_csv", "w", encoding="utf-8") as f :
+#     writer = csv.writer(f)
+#     writer.writerow(["시각","설비"])
+#     writer.writerow(["09:00", "PUMP-01"])
+
+# 문제 10번
+# with open ("data/log.txt", "w", encoding="utf-8") as f :
+#     f.write("점검 시작 \n")
+
+# with open ("data/log.txt", "a", encoding="utf-8") as f :
+#     f.write("점검 종료")
+
+# with open ('data/log.txt", "r", encoding="utf-8") as f :
+#     reader = f.read()
+
+# print(reader)
+
+# 문제 11번
+# import os 
+
+# list = os.listdir("data")
+# result = []
+# for i in list :
+#     if i.endswith(".csv") :
+#         result.append(i)
+
+# for j in result :
+#     summary = os.path.join("data",j)
+#     print(summary)
+
+# 문제 12번
+# import random
+# import math 
+# valid = []
+
+# for i in range(5) :
+#     valid.append(random.randint(0,100))
+
+# for j in valid :
+#     a = round(math.sqrt(j),2)
+#     print(a)
+
+# 문제 13번
+# import os
+# import csv
+
+# valid = []
+# if os.path.exists("data/08_press_13_261029_3.csv") == True :
+#     with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#         reader = csv.reader(f)
+#         next(reader)
+#         result = list(reader)
+#     print(len(result))
+# else :
+#     print("파일 없음 : 경로")
+
+# 문제 14번
 
 
 
-        
+
+
 
 
 
