@@ -151,6 +151,7 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # 문제 7번
 # print(log.sort_values("비스킷두께", ascending=False)["샷"].head(5).tolist())
 # print(log.sort_values("품질등급", ascending=True)["샷"].head(5).tolist())
+# log.sort_values("비스킷두께", ascending = False)["샷"].head(5).tolist()
 
 # 문제 8번
 # merged = log.merge(master, on="설비ID", how="inner")
@@ -160,6 +161,7 @@ master = pd.read_csv("data/13_diecasting_master_24_261110_1.csv", sep=",", encod
 # merged_inner = log.merge(master, on="설비ID", how="inner")
 # merged_left = log.merge(master, on="설비ID", how="left")
 # merged_outer = log.merge(master, on="설비ID", how="outer")
+# merged_inner = log.merge(master, on = "설비ID", how = "inner")
 
 # print(merged_left["라인"].isna().sum())
 # print(merged_left[merged_left["라인"].isna()]["설비ID"].head(1))

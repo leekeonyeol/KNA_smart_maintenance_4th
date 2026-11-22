@@ -460,16 +460,16 @@ import math
 #         writer.writerow(j)
 
 # 문제 16번
-import csv 
-result = {}
+# import csv 
+# result = {}
 
-with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
-    reader = csv.reader(f)
-    next(reader)
-    for i in reader :
-        result[i[0]] = i[4]
+# with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     next(reader)
+#     for i in reader :
+#         result[i[0]] = i[4]
 
-print(result)
+# print(result)
 
 
 

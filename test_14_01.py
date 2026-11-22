@@ -189,6 +189,7 @@ qc = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-
 # cutted = pd.cut(df["온도"], bins=[0,40,50,200], labels=["낮음","보통","높음"], right=True)
 # print(cutted.value_counts())
 # print(cutted.isna().sum())
+# cutted = pd.cut(df["온도"], bins=[0,20,30,40], label = ["낮음","보통","높음"], right=True)
 
 # 문제 4번
 # print(df.groupby("냉각기상태")["온도"].agg(["mean","max"]).round(2))
@@ -202,11 +203,15 @@ qc = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-
 # print(summary.round(3))
 # print(summary.loc["고장","평균온도"] - summary.loc["정상","평균온도"])
 
+# 1 = df.groupby("냉각기상태")["온도"].agg(["mean","max"])
+# 2 = df.groupby("냉각기상태").agg(평균온도 = ("온도","mean"), 평균진동 = ("진동","mean"))
+
 # 문제 7번
 # ct = pd.crosstab(df["냉각기상태"], df["운전부하"]) # 크로스탭은 사이클수 
 # print(ct)
-# mean_table = df.groupby(["냉각기상태","운전부하"])["온도"].mean().unstack() # 언스택은 어떤 인데스를 열로 올릴지 결정
+# mean_table = df.groupby(["냉각기상태","운전부하"])["온도"].mean().unstack() # 언스택은 어떤 인덱스를 열로 올릴지 결정
 # print(mean_table.round(3))
+# mean_table = df.groupby(["냉각기상태","운전부하"])["온도"].mean().unstsck()
 
 # 문제 8번
 # total = df["밸브상태"].value_counts()
@@ -231,7 +236,7 @@ qc = pd.read_csv("data/14_hydraulic_qc_26_261112_2.csv", sep=",", encoding="utf-
 # temp_table_1 = pd.pivot_table(df, index="밸브상태", columns="운전부하",
 #                               values="온도", aggfunc="mean", margins=True,
 #                               margins_name="전체")
-# print(temp_table_1)
+# print(temp_table_1) # 결국 전체를 알기 위해 groupby.unstack이 아니라 pivot_table을 사용
 
 # 문제 11번
 # sensor_cols = qc.select_dtypes(include="number").columns.tolist()
