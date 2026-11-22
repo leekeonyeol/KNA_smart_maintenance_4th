@@ -424,6 +424,56 @@ import math
 #     print("파일 없음 : 경로")
 
 # 문제 14번
+# import csv
+
+# abnormal = []
+# with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     header = next(reader)
+#     abnormal = []
+#     for i in reader :
+#         if int(i[5]) == 1 :
+#             abnormal.append(i)
+
+# with open ("data/08_press_abnormal.csv", "w", encoding="utf-8") as f :
+#     writer = csv.writer(f)
+#     writer.writerow(header)
+#     for j in abnormal :
+#         writer.writerow(j)
+
+# 문제 15번
+# import csv
+# LIMIT = 90
+# data = []
+
+# with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+#     reader = csv.reader(f)
+#     header = next(reader)
+#     for i in reader :
+#         if float(i[4]) > LIMIT :
+#             data.append(i)
+
+# with open ("data/over.csv", "w", encoding="utf-8") as f :
+#     writer = csv.writer(f)
+#     writer.writerow(header)
+#     for j in data :
+#         writer.writerow(j)
+
+# 문제 16번
+import csv 
+result = {}
+
+with open ("data/08_press_13_261029_3.csv", "r", encoding="utf-8") as f :
+    reader = csv.reader(f)
+    next(reader)
+    for i in reader :
+        result[i[0]] = i[4]
+
+print(result)
+
+
+
+
 
 
 
