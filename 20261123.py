@@ -1,1 +1,3 @@
-print("안녕하세요")
+my_string = "nice to meet you"
+answer = my_string.replace("o","")
+print(answer)
