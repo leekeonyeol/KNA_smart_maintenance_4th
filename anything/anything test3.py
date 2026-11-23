@@ -53,8 +53,9 @@
 
 # print(f"결과: {win}승 {lose}패 {draw}무")
 
-
-
+# if int(1) == True :
+#     print("d")
+print(str(1234))
 
 
 
