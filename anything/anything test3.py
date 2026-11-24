@@ -55,7 +55,9 @@
 
 # if int(1) == True :
 #     print("d")
-print(str(1234))
+print(type(1234) == int)
+import math
+print(type((math.sqrt(144))))
 
 
 
